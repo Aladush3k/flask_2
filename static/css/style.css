@@ -13,3 +13,9 @@ h4 {
 .h1_level_rooms h1{
     margin-left: 70px;
 }
+.table_text {
+    text-align: center;
+    background-color: #a7a0a0;
+    font-size: 32px;
+    font-weight: bold;
+}

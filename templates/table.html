@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <tr>
+        <td>
+          <div class="table_text">
+          Цвет стен
+          </div>
+        </td>
+        <td>
+          <div class="table_text">
+          Эмблема
+          </div>
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>
+            <img src='{{ img_color }}' width="400" height="700" alt='Something wrong'>
+        </td>
+        <td>
+            <img src='{{ img }}' width="400" height="700" alt="Something wrong">
+        </td>
+    </tr>
+</table>
+{% endblock %}
