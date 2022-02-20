@@ -2,3 +2,11 @@ h4 {
     color: #a7a0a0;
     margin-left: 20px;
 }
+.h1_level{
+    display: table;
+}
+.h1_level img,
+.h1_level h1 {
+  display: table-cell;
+    vertical-align: middle;
+}

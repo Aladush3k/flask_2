@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from flask_wtf import FlaskForm
 import json
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
@@ -6,6 +6,7 @@ from wtforms.validators import DataRequired
 
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 
 @app.route('/<title>')
@@ -35,17 +36,20 @@ def show_list(list): # незнаю как указать путь до json ф�
     return render_template('list.html', news=news_list, tag=tag)
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        return redirect('/success')
     return render_template('login.html', title='Авторизация', form=form)
 
 
 class LoginForm(FlaskForm):
-    username = StringField('Логин', validators=[DataRequired()])
-    password = PasswordField('Пароль', validators=[DataRequired()])
-    remember_me = BooleanField('Запомнить меня')
-    submit = SubmitField('Войти')
+    astronaut_username = StringField('id астронавта', validators=[DataRequired()])
+    astronaut_password = PasswordField('Пароль астронавта', validators=[DataRequired()])
+    capitan_username = StringField('id капитана', validators=[DataRequired()])
+    capitan_password = PasswordField("Пароль капитана", validators=[DataRequired()])
+    submit = SubmitField('Доступ')
 
 
 if __name__ == "__main__":
