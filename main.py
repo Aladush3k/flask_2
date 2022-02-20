@@ -31,7 +31,7 @@ def show_list(list): # незнаю как указать путь до json ф�
         tag = 1
     elif list == 'ul':
         tag = 2
-    with open("templates/list.json", "rt", encoding="utf8") as f:
+    with open("static/json/list.json", "rt", encoding="utf8") as f:
         news_list = json.loads(f.read())
     return render_template('list.html', news=news_list, tag=tag)
 
