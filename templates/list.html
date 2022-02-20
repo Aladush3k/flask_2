@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if tag == 1 %}
+        <h2>Список профессий</h2>
+        <ol>
+        {% for item in news['news'] %}
+            <li>{{item["title"]}}</li>
+        {% endfor %}
+        </ol>
+    {% elif tag == 2 %}
+        <h2>Список профессий</h2>
+        <ul>
+        {% for item in news['news'] %}
+            <li>{{item["title"]}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h2>Неверный формат списка</h2>
+    {% endif %}
+{% endblock %}
