@@ -44,6 +44,13 @@ def login():
     return render_template('login.html', title='Авторизация', form=form)
 
 
+@app.route("/distribution")
+def distribution():
+    with open("static/json/room_list.json", "rt", encoding="utf8") as f:
+        news_list = json.loads(f.read())
+    return render_template('rooms.html', news=news_list)
+
+
 class LoginForm(FlaskForm):
     astronaut_username = StringField('id астронавта', validators=[DataRequired()])
     astronaut_password = PasswordField('Пароль астронавта', validators=[DataRequired()])

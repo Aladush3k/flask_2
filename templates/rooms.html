@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="h1_level_rooms">
+    <h1>Размещение по каютам</h1>
+</div>
+{% set kauta = 'Каюта №' %}
+{% for user in news["news"] %}
+    <p>{{ user['title'] }} - {{ kauta }} {{ loop.index }} {% if loop.first %} - капитан корабля {% endif %}
+    </p>
+{% endfor %}
+
+{% endblock %}
